@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% block title %} all songs {% endblock %}
+
+
+{% block body %}
+
+  {% for i in song %}
+
+
+<section class="">
+    <div class="bg-coolGray-800 dark:text-coolGray-50">
+        <div class="container grid grid-cols-12 mx-auto bg-coolGray-900 my-10 border-4 rounded-xl">
+            <div class="bg-no-repeat bg-cover col-span-full lg:col-span-4 max-w-md max-h-30> " style="background-position: center center; background-blend-mode: multiply; background-size: cover;">
+                <div class="grid justify-items-center">
+                    <img src="{{ i.image.url }}" class=" bg-no-repeat bg-cover col-span-full lg:col-span-4 max-w-md max-h-56">
+                </div>
+            </div>
+            <div class="flex flex-col p-6 col-span-full row-span-full lg:col-span-8 lg:p-10">
+                <h1 class="text-3xl font-semibold">{{ i.name }}</h1>
+                <p class="flex-1 pt-2">{{ i.tags }}</p>
+                <a href="/songs/{{ i.song_id }}" class="inline-flex items-center pt-2 pb-6 space-x-2 text-sm text-purple-400">
+                    <span>Listen</span>
+                    <svg class="w-10 h-10" data-darkreader-inline-fill="" data-darkreader-inline-stroke="" fill="none" stroke="currentColor" style="--darkreader-inline-fill:none; --darkreader-inline-stroke:currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </a>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 dark:text-coolGray-400">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="self-center text-sm">{{ i.artist }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  {% endfor %}
+
+
+{% endblock %}
